@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOPPS BURGER — Hamburgueria e Delivery</title>
+<meta name="description" content="Cardápio e pedidos pelo WhatsApp da TOPPS BURGER, em Pendências/RN.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="./assets/logo.jpg">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="top">
+  <a href="#inicio" class="brand"><img src="./assets/logo.jpg" alt="Logo TOPPS BURGER"><span>TOPPS BURGER</span></a>
+  <button class="btn sm open-cart">🛒 Carrinho (<span class="cnt">0</span>)</button>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <h1>TOPPS <span>BURGER</span></h1>
+  <p class="tag">🛵 Peça por Delivery</p>
+  <p class="addr" id="addr"></p>
+  <div class="row">
+    <a class="btn" href="#cardapio">Ver Cardápio</a>
+    <a class="btn ghost" id="zap" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</section>
+
+<section id="destaques"><h2>🔥 Destaques</h2><div class="grid" id="gDest"></div></section>
+
+<section id="cardapio"><h2>Cardápio</h2><p class="note">Escolha uma categoria</p><nav id="tabs"></nav><div id="gMenu"></div></section>
+
+<section id="delivery"><h2>🛵 Delivery</h2><div class="info" id="info"></div></section>
+</main>
+
+<footer><img src="./assets/logo.jpg" alt="Logo TOPPS BURGER"><p id="rodape"></p><p class="dev">Desenvolvido por <b>João Vitor Leonardo</b></p></footer>
+
+<button class="btn fab open-cart"><span>🛒 Ver carrinho (<span class="cnt">0</span>)</span><b id="fabTot"></b></button>
+<div id="toast"></div>
+
+<!-- Personalização do produto -->
+<div class="ov" id="modal" hidden><div class="sheet" id="sheet"></div></div>
+
+<!-- Carrinho → Dados → Revisão -->
+<div class="ov" id="panel" hidden><div class="sheet">
+  <button class="x" data-close aria-label="Fechar">✕</button>
+
+  <div id="s1">
+    <h3>🛒 Seu carrinho</h3>
+    <div id="lista"></div>
+    <div class="tot" id="tot1"></div>
+    <div class="row"><button class="btn ghost sm" id="clear">Esvaziar</button><button class="btn" id="irForm">Continuar</button></div>
+  </div>
+
+  <div id="s2" hidden>
+    <h3>📍 Entrega e pagamento</h3>
+    <form id="f" novalidate>
+      <div class="seg"><label><input type="radio" name="tipo" value="entrega" checked> Entrega</label><label><input type="radio" name="tipo" value="retirada"> Retirada no local</label></div>
+      <input name="nome" placeholder="Nome completo *" autocomplete="name">
+      <input name="tel" placeholder="Telefone / WhatsApp com DDD *" inputmode="tel" autocomplete="tel">
+      <div id="end">
+        <input name="cep" placeholder="CEP" inputmode="numeric">
+        <input name="rua" placeholder="Rua *">
+        <div class="two"><input name="num" placeholder="Número *"><input name="comp" placeholder="Complemento"></div>
+        <input name="bairro" placeholder="Bairro *" list="bairros" autocomplete="off"><datalist id="bairros"></datalist>
+        <input name="cidade" placeholder="Cidade *">
+        <input name="ref" placeholder="Ponto de referência">
+        <textarea name="obsE" rows="2" placeholder="Observações para o entregador"></textarea>
+        <p class="note" id="taxaInfo"></p>
+      </div>
+      <h4>Forma de pagamento *</h4>
+      <div class="seg" id="pags"></div>
+      <div id="troco" hidden>
+        <label class="chk"><input type="checkbox" name="precisaTroco"> Preciso de troco</label>
+        <input name="trocoPara" placeholder="Troco para quanto? (R$)" inputmode="decimal">
+      </div>
+      <p class="note" id="pixInfo" hidden></p>
+      <p class="note">Não pedimos dados de cartão. O pagamento é combinado na entrega/retirada.</p>
+      <p class="err" id="err"></p>
+      <div class="row"><button type="button" class="btn ghost" id="vCart">Voltar</button><button class="btn">Revisar pedido</button></div>
+    </form>
+  </div>
+
+  <div id="s3" hidden>
+    <h3>✅ Revise seu pedido</h3>
+    <pre id="msg"></pre>
+    <div class="tot" id="tot3"></div>
+    <p class="note">Ao tocar no botão abaixo o WhatsApp abre com a mensagem pronta. O pedido só é enviado quando você tocar em <b>enviar</b> no WhatsApp.</p>
+    <div class="row"><button class="btn ghost" id="vForm">Editar</button><button class="btn" id="send">Finalizar Pedido pelo WhatsApp</button></div>
+  </div>
+</div></div>
+
+<script src="./config.js"></script>
+<script src="./script.js" defer></script>
+</body>
+</html>
